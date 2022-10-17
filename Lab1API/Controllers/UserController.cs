@@ -26,12 +26,5 @@ namespace Lab1API.Controllers
             DbContext.Users.Add(user);
             return Ok("Success");
         }
-
-        [HttpGet]
-
-        public ActionResult<IEnumerable<User>> GetAllUsers([FromBody] User user)
-        {
-            return Ok(DbContext.Users);
-        }
     }
 }
