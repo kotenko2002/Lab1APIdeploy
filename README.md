@@ -1,17 +1,19 @@
+#If you want to deduct points for "bad commits", then watch this video(2min): https://youtu.be/uhG9_5fJJ0w
 ### Required for app to work
 Installed [.NET 5.0](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-5.0.408-windows-x64-installer)  
 Installed [ASP.NET Core 5.0 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-aspnetcore-5.0.17-windows-x64-installer)
 
 ### How to download and run the app
+Video instruction(1min): https://youtu.be/LasMPDeCI34
 Write these 3 commands in a directory convenient for you:
 ```
-git clone https://github.com/kotenko2002/Back-end-labs--Heroku-deploy.git
-cd Back-end-labs--Heroku-deploy\Lab 1
+git clone https://github.com/kotenko2002/Lab1APIdeploy.git
+cd Lab1APIdeploy\Lab1API
 dotnet run
 ```
 
 ### Endpoints
-Video review on the API: https://youtu.be/6q__RZ7W3eU
+Video review on the API(2min): https://youtu.be/6q__RZ7W3eU
 
 You can use 2 domains:
 * local: `https://localhost:5001`
