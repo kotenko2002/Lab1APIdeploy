@@ -1,8 +1,11 @@
-﻿namespace Lab1API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Lab1API.Models
 {
     public class Category
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
     }
 }
