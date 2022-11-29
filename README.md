@@ -1,4 +1,4 @@
-#If you want to deduct points for "bad commits", then watch this video(2min): https://youtu.be/uhG9_5fJJ0w
+# If you want to deduct points for "bad commits", then watch this video(2min): https://youtu.be/uhG9_5fJJ0w
 ### Required for app to work
 Installed [.NET 5.0](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-5.0.408-windows-x64-installer)  
 Installed [ASP.NET Core 5.0 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-aspnetcore-5.0.17-windows-x64-installer)
