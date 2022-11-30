@@ -1,8 +1,12 @@
-﻿using Lab1API.Data;
+﻿using AutoMapper;
+using Lab1API.Data;
+using Lab1API.Data.Repositories.Users;
+using Lab1API.DTOs;
 using Lab1API.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Lab1API.Controllers
 {
@@ -10,20 +14,20 @@ namespace Lab1API.Controllers
     [Route("api/user")]
     public class UserController : ControllerBase
     {
-        [HttpPost]
-        public ActionResult AddUser([FromBody] User user)
+        private readonly IMapper _mapper;
+        private readonly IUserRepository _userRepository;
+        public UserController(IUserRepository userRepository, IMapper mapper)
         {
-            if (user == null)
-            {
-                return BadRequest("Empty request body");
-            }
+            _userRepository = userRepository;
+            _mapper = mapper;
+        }
 
-            if (DbContext.Users.Any(item => item.Id == user.Id))
-            {
-                return BadRequest("User with such Id already exists");
-            }
+        [HttpPost]
+        public async Task<ActionResult> AddUser([FromBody] UserAddModel model)
+        {
+            var user = _mapper.Map<User>(model);
 
-            DbContext.Users.Add(user);
+            await _userRepository.AddUserAsync(user);
             return Ok("Success");
         }
     }

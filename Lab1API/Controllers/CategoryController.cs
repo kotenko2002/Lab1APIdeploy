@@ -1,8 +1,12 @@
-﻿using Lab1API.Data;
+﻿using AutoMapper;
+using Lab1API.Data;
+using Lab1API.Data.Repositories.Categories;
+using Lab1API.DTOs;
 using Lab1API.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Lab1API.Controllers
 {
@@ -10,33 +14,27 @@ namespace Lab1API.Controllers
     [Route("api/category")]
     public class CategoryController : ControllerBase
     {
-        [HttpPost]
-        public ActionResult AddCategory([FromBody] Category category)
+        private readonly IMapper _mapper;
+        private readonly ICategoryRepository _categoryRepository;
+        public CategoryController(ICategoryRepository categoryRepository, IMapper mapper)
         {
-            if (category == null)
-            {
-                return BadRequest("Empty request body");
-            }
+            _categoryRepository = categoryRepository;
+            _mapper = mapper;
+        }
 
-            if (DbContext.Categories.Any(item => item.Id == category.Id))
-            {
-                return BadRequest("Category with such Id already exists");
-            }
+        [HttpPost]
+        public async Task<ActionResult> AddCategory([FromBody] CategoryAddModel model)
+        {
+            var category = _mapper.Map<Category>(model);
 
-            DbContext.Categories.Add(category);
+            await _categoryRepository.AddCategoryAsync(category);
             return Ok("Success");
         }
 
         [HttpGet("items")]
-        public ActionResult<IEnumerable<Category>> GetAllCategories()
+        public async Task<IEnumerable<Category>> GetAllCategories()
         {
-            var categories = DbContext.Categories;
-            if (categories == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(categories);
+            return await _categoryRepository.GetAllCategories();
         }
     }
 }
