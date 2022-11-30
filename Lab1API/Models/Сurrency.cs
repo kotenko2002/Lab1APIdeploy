@@ -1,12 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Lab1API.DTOs
+namespace Lab1API.Models
 {
-    public class UserAddModel
+    public class Сurrency
     {
-        [Required]
-        public int СurrencyId { get; set; }
-
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
     }

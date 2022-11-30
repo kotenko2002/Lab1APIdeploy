@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using AutoMapper;
 using System;
+using Lab1API.Data.Repositories.Currencies;
 
 namespace Lab1API
 {
@@ -34,6 +35,7 @@ namespace Lab1API
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IRecordRepository, RecordRepository>();
+            services.AddScoped<IÑurrencyRepository, ÑurrencyRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

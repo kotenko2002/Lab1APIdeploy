@@ -22,14 +22,23 @@ namespace Lab1API.Data.Repositories.Records
 
         public async Task<Record> GetRecordById(int id)
         {
-             return await _dbContext.Records.FindAsync(id);
+             var record =  await _dbContext.Records.FindAsync(id);
+
+            if (record == null)
+            {
+                throw new System.Exception("No record with such Id");
+            }
+            
+            return record;
         }
 
         public async Task<IEnumerable<Record>> GetRecordsByUserIdAndCategoryId(int userId, int categoryId)
         {
-            return await _dbContext.Records
+            var records =  await _dbContext.Records
                 .Where(item => item.UserId == userId && item.CategoryId == categoryId)
                 .ToListAsync();
+
+            return records;
         }
     }
 }

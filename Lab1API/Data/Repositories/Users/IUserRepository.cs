@@ -6,5 +6,7 @@ namespace Lab1API.Data.Repositories.Users
     public interface IUserRepository
     {
         Task AddUserAsync(User user);
+        Task ChangeUserDefaultСurrencyAsunc(int userId, int currencyId);
+        Task<int> GetUserDefaultСurrencyAsunc(int userId);
     }
 }

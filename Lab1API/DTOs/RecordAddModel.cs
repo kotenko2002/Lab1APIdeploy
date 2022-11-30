@@ -10,6 +10,9 @@ namespace Lab1API.DTOs
         public int UserId { get; set; }
         [Required]
         public int CategoryId { get; set; }
+        public int? CurrencyId { get; set; }
+
+
         [Required]
         public DateTime CreatedOnUtc { get; set; }
         [Required]
