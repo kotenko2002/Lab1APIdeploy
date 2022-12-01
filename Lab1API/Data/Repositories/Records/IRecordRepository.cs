@@ -6,8 +6,8 @@ namespace Lab1API.Data.Repositories.Records
 {
     public interface IRecordRepository
     {
-        Task AddRecordAsync(Record record);
-        Task<Record> GetRecordById(int id);
+        Task<int> AddRecordAsync(Record record);
+        Task<IEnumerable<Record>> GetRecordsByUserId(int userId);
         Task<IEnumerable<Record>> GetRecordsByUserIdAndCategoryId (int userId, int categoryId);
     }
 }

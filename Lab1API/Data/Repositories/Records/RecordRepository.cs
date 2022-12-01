@@ -1,5 +1,6 @@
 ﻿using Lab1API.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,15 +15,19 @@ namespace Lab1API.Data.Repositories.Records
             _dbContext = dbContext;
         }
 
-        public async Task AddRecordAsync(Record record)
+        public async Task<int> AddRecordAsync(Record record)
         {
+            record.CreatedOnUtc = DateTime.Now;
+
             _dbContext.Records.Add(record);
             await _dbContext.SaveChangesAsync();
+
+            return record.Id;
         }
 
-        public async Task<Record> GetRecordById(int id)
+        public async Task<IEnumerable<Record>> GetRecordsByUserId(int userId)
         {
-             var record =  await _dbContext.Records.FindAsync(id);
+             var record =  await _dbContext.Records.Where(r => r.UserId == userId).ToListAsync();
 
             if (record == null)
             {
@@ -35,7 +40,7 @@ namespace Lab1API.Data.Repositories.Records
         public async Task<IEnumerable<Record>> GetRecordsByUserIdAndCategoryId(int userId, int categoryId)
         {
             var records =  await _dbContext.Records
-                .Where(item => item.UserId == userId && item.CategoryId == categoryId)
+                .Where(r => r.UserId == userId && r.CategoryId == categoryId)
                 .ToListAsync();
 
             return records;

@@ -36,15 +36,16 @@ namespace Lab1API.Controllers
             }
 
             var record = _mapper.Map<Record>(model);
-            await _recordRepository.AddRecordAsync(record);
+            var recordId = await _recordRepository.AddRecordAsync(record);
             
-            return Ok("Success");
+            return Ok($"Success. RecordId = {recordId}");
+
         }
 
         [HttpGet("items/{id}")]
-        public async Task<Record> GetRecordsByUserId(int id)
+        public async Task<IEnumerable<Record>> GetRecordsByUserId(int id)
         {
-            return await _recordRepository.GetRecordById(id);
+            return await _recordRepository.GetRecordsByUserId(id);
         }
 
         [HttpGet("items")]

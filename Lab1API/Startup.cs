@@ -25,7 +25,7 @@ namespace Lab1API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(opt => opt.UseSqlServer
+            services.AddDbContext<ApplicationDbContext>(opt => opt.UseSqlite
                 (Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();

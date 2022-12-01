@@ -13,8 +13,8 @@ namespace Lab1API.DTOs
         public int? CurrencyId { get; set; }
 
 
-        [Required]
-        public DateTime CreatedOnUtc { get; set; }
+        //[Required]
+        //public DateTime CreatedOnUtc { get; set; }
         [Required]
         [Column(TypeName = "decimal(18,2)")]
         public decimal Sum { get; set; }

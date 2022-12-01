@@ -1,4 +1,5 @@
 ﻿using Lab1API.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace Lab1API.Data.Repositories.Users
@@ -10,10 +11,12 @@ namespace Lab1API.Data.Repositories.Users
         {
             _dbContext = dbContext;
         }
-        public async Task AddUserAsync(User user)
+        public async Task<int> AddUserAsync(User user)
         {
             _dbContext.Users.Add(user);
             await _dbContext.SaveChangesAsync();
+
+            return user.Id;
         }
 
         public async Task ChangeUserDefaultСurrencyAsunc(int userId, int currencyId)

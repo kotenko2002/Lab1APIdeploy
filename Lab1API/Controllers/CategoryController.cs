@@ -27,8 +27,8 @@ namespace Lab1API.Controllers
         {
             var category = _mapper.Map<Category>(model);
 
-            await _categoryRepository.AddCategoryAsync(category);
-            return Ok("Success");
+            var categoryId = await _categoryRepository.AddCategoryAsync(category);
+            return Ok($"Success. CategoryId = {categoryId}");
         }
 
         [HttpGet("items")]

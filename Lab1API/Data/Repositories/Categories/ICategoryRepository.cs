@@ -6,7 +6,7 @@ namespace Lab1API.Data.Repositories.Categories
 {
     public interface ICategoryRepository
     {
-        Task AddCategoryAsync(Category category);
+        Task<int> AddCategoryAsync(Category category);
 
         Task<IEnumerable<Category>> GetAllCategories();
     }

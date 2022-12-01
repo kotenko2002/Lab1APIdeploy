@@ -14,10 +14,12 @@ namespace Lab1API.Data.Repositories.Categories
             _dbContext = dbContext;
         }
 
-        public async Task AddCategoryAsync(Category category)
+        public async Task<int> AddCategoryAsync(Category category)
         {
             _dbContext.Categories.Add(category);
             await _dbContext.SaveChangesAsync();
+
+            return category.Id;
         }
 
         public async Task<IEnumerable<Category>> GetAllCategories()

@@ -33,8 +33,8 @@ namespace Lab1API.Controllers
         {
             var user = _mapper.Map<User>(model);
 
-            await _userRepository.AddUserAsync(user);
-            return Ok("Success");
+            var userId = await _userRepository.AddUserAsync(user);
+            return Ok($"Success. UserId = {userId}");
         }
 
         [HttpGet("currencies")]
