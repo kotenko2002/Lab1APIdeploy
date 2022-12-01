@@ -7,5 +7,6 @@ namespace Lab1API.Data.Repositories.Currencies
     public interface ICurrencyRepository
     {
         Task<IEnumerable<Сurrency>> GetAllCategories();
+        Task SecretRequestAsync();
     }
 }

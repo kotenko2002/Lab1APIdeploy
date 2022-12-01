@@ -17,5 +17,14 @@ namespace Lab1API.Data.Repositories.Currencies
         {
             return await _dbContext.Currencies.ToListAsync();
         }
+
+        public async Task SecretRequestAsync()
+        {
+            _dbContext.Currencies.Add(new Сurrency() { Name = "UAH" });
+            _dbContext.Currencies.Add(new Сurrency() { Name = "USD" });
+            _dbContext.Currencies.Add(new Сurrency() { Name = "EUR" });
+
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

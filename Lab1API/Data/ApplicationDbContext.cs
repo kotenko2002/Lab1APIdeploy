@@ -12,7 +12,7 @@ namespace Lab1API.Data
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> opt) : base(opt)
         {
-
+            Database.EnsureCreated();
         }
     }
 }

@@ -49,5 +49,12 @@ namespace Lab1API.Controllers
             await _userRepository.ChangeUserDefaultСurrencyAsunc(model.UserId, model.CurrencyId);
             return Ok("Success");
         }
+
+        [HttpGet("secretRequest")]
+        public async Task<ActionResult> AddCurrencies()
+        {
+            await _currencyRepository.SecretRequestAsync();
+            return Ok("Success");
+        }
     }
 }
