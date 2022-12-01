@@ -1,4 +1,3 @@
-# If you want to deduct points for "bad commits", then watch this video(2min): https://youtu.be/uhG9_5fJJ0w
 ### Required for app to work
 Installed [.NET 5.0](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-5.0.408-windows-x64-installer)  
 Installed [ASP.NET Core 5.0 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-aspnetcore-5.0.17-windows-x64-installer)
@@ -13,15 +12,17 @@ dotnet run
 ```
 
 ### Endpoints
-Video review on the API(2min): https://youtu.be/6q__RZ7W3eU
-
+Video review on the API(5min): https://youtu.be/ZUaXotryUM4
+Video explanation how I implemented the practical task - 1. Валюти: https://youtu.be/xWlCGxtnr1o
 You can use 2 domains:
-* local: `https://localhost:5001`
-* deployed: `https://lab1-dotnet.herokuapp.com`
+* local: `localhost:5001`
+* deployed: `lab1-dotnet.herokuapp.com`
 <br/>
      
 * UserController
     * Add new user: `{domain}/api/user`
+    * Get All Currencies: `{domain}/api/user/currencies`
+    * Change Default Сurrency: `{domain}/api/user/currency`
 * CategoryController
     * Add new category: `{domain}/api/category`
     * Get list of all categories: `{domain}/api/category/items`
