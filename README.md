@@ -14,7 +14,7 @@ dotnet run
 ### Endpoints
 * Video review on the API(5min): https://youtu.be/ZUaXotryUM4
 * Video explanation how I implemented the practical task - 1. Валюти: https://youtu.be/xWlCGxtnr1o
-<br/>
+
 You can use 2 domains:
 * local: `localhost:5001`
 * deployed: `lab1-dotnet.herokuapp.com`
