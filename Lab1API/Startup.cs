@@ -35,7 +35,7 @@ namespace Lab1API
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IRecordRepository, RecordRepository>();
-            services.AddScoped<IÑurrencyRepository, ÑurrencyRepository>();
+            services.AddScoped<ICurrencyRepository, CurrencyRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

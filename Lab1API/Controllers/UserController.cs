@@ -17,11 +17,11 @@ namespace Lab1API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IUserRepository _userRepository;
-        private readonly IСurrencyRepository _currencyRepository;
+        private readonly ICurrencyRepository _currencyRepository;
         public UserController(
             IMapper mapper,
             IUserRepository userRepository,
-            IСurrencyRepository сurrencyRepository)
+            ICurrencyRepository сurrencyRepository)
         {
             _mapper = mapper;
             _userRepository = userRepository;

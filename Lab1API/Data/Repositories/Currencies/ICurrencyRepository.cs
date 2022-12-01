@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Lab1API.Data.Repositories.Currencies
 {
-    public interface IСurrencyRepository
+    public interface ICurrencyRepository
     {
         Task<IEnumerable<Сurrency>> GetAllCategories();
     }
